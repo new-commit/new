@@ -1,0 +1,41 @@
+Steps to run the code
+
+1. javac SampleDLL.java
+2. javah -jni SampleDLL (OLD)
+        OR
+2. javac -h . SampleDLL.java (NEW)        //if error occurs for "class file not found try some ways to solve it with help of internet or change ur pc "
+
+3. locate jni.h        //copy any one path from the list of available paths and paste in step 5
+4. locate jni_md.h     //copy any one path from the list of available paths and paste in step 5
+
+5. gcc -o libSampleDLL.so -shared -fPIE -I /usr/lib/jvm/java-8-openjdk-amd64/include/linux/ -I /usr/lib/jvm/java-8-openjdk-amd64/include/ -shared SampleDLL.c
+6. java -Djava.library.path='/home/admin/Downloads/sahil_DLL/SPOS/DLL' SampleDLL
+
+
+
+
+
+
+
+
+
+
+NOTE in step 5 replace 
+# /usr/lib/jvm/java-8-openjdk-amd64/include/linux/ with the path copied from step 3 
+# /usr/lib/jvm/java-8-openjdk-amd64/include/ with path copied from step 4
+
+NOTE in step 6 replace
+# /home/admin/Downloads/sahil_DLL/SPOS/DLL with the path of ur directory where ur code files r saved
+
+
+
+
+
+
+
+
+
+g++ -shared -fPIC -o libSampleDLL.so -I"${JAVA_HOME}/include" -I"${JAVA_HOME}/include/linux" SampleDLL.cpp
+
+
+
